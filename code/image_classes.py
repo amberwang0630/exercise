@@ -22,7 +22,7 @@ class DataPrep:
         
         
 class LabelsPrep:
-"""class to prepare the labels as one-hot vectors"""
+  """class to prepare the labels as one-hot vectors"""
 	def __init__(self, data, num_classes):
 	    self.labels = data
 	    self.num_classes = num_classes
@@ -75,7 +75,7 @@ class CNN:
         self.input_shape = input_shape
        
     def trainmodel(self):
-    # train and compile the model
+      """train and compile the model"""
         self.CNN_dropout_hidden = CNN_dropout_hidden_fun(self.input_shape)
         self.CNN_dropout_hidden.compile(loss = self.params['loss'], 
                                         optimizer = self.params['optimizer'], 
@@ -83,7 +83,7 @@ class CNN:
                                        )
  
     def accuracy(self):
-    # print accuracy history per epoch
+      """print accuracy history per epoch"""
         self.history_dropout_hidden = self.CNN_dropout_hidden.fit(self.data_train, 
                                                                   self.labels_train, 
                                                                   validation_data = (self.data_test, self.labels_test), 
@@ -97,7 +97,7 @@ class CNN:
         print("Accuracy: %.2f%%" %(self.scores_dropout_hidden[1]*100))
    
     def plottrain(self):
-    # plot loss and accuracy against epoch for training data
+      """plot loss and accuracy against epoch for training data"""
         plt.subplot(121)
         plt.plot(self.history_dropout_hidden.history['accuracy'])
 
@@ -105,7 +105,7 @@ class CNN:
         plt.plot(self.history_dropout_hidden.history['loss'])
       
     def plotval(self):
-    # plot loss and accuracy against epoch for validation data
+      """plot loss and accuracy against epoch for validation data"""
         plt.subplot(121)
         val_accuracy = plt.plot(self.history_dropout_hidden.history['val_accuracy'])
 
