@@ -33,20 +33,20 @@ class LabelsPrep:
 	    print('labels data type:', type(self.labels))
 
 
-  def CNN_dropout_hidden_fun(input_shape):
-    """define the CNN model"""
-    model = Sequential()
-    model.add(InputLayer(input_shape = input_shape))
-    model.add(Dropout(0.3))
-    model.add(Conv2D(256, kernel_size = (3,3),activation = tf.nn.relu))
-    model.add(MaxPooling2D(pool_size = (2, 2)))
-    model.add(Conv2D(128, kernel_size = (3,3),activation = tf.nn.relu))
-    model.add(MaxPooling2D(pool_size = (2, 2)))
-    model.add(Flatten()) # Flattening the 2D arrays for fully connected layers
-    model.add(Dense(100, activation = tf.nn.relu))
-    model.add(Dense(100,activation = tf.nn.relu))
-    model.add(Dense(10,activation = tf.nn.softmax))
-    return model        
+def CNN_dropout_hidden_fun(input_shape):
+  """define the CNN model"""
+  model = Sequential()
+  model.add(InputLayer(input_shape = input_shape))
+  model.add(Dropout(0.3))
+  model.add(Conv2D(256, kernel_size = (3,3),activation = tf.nn.relu))
+  model.add(MaxPooling2D(pool_size = (2, 2)))
+  model.add(Conv2D(128, kernel_size = (3,3),activation = tf.nn.relu))
+  model.add(MaxPooling2D(pool_size = (2, 2)))
+  model.add(Flatten()) # Flattening the 2D arrays for fully connected layers
+  model.add(Dense(100, activation = tf.nn.relu))
+  model.add(Dense(100,activation = tf.nn.relu))
+  model.add(Dense(10,activation = tf.nn.softmax))
+  return model        
 
 
 class CNN:
